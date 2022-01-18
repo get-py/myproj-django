@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.db import models
+
 
 class TimestampedModel(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
@@ -11,5 +13,4 @@ class TimestampedModel(models.Model):
 class Post(TimestampedModel):
     title = models.CharField(max_length=100, db_index=True)
     content = models.TextField()
-
-
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)

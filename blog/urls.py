@@ -4,12 +4,12 @@ from rest_framework.routers import DefaultRouter
 from blog import views
 from blog.views import PostViewSet
 
-app_name = 'blog'
+app_name = "blog"
 
 router = DefaultRouter()
 router.register("posts", PostViewSet)
 
 urlpatterns = [
     path("api/", include(router.urls)),
-    path("posts.json", views.post_list),
+    # path("posts.json", views.post_list),
 ]
